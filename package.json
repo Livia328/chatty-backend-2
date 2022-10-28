@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon -r tsconfig-paths/register src/app.ts | bunyan",
+    "dev": "nodemon -r tsconfig-paths/register src/app.ts | ./node_modules/.bin/bunyan",
     "lint:check": "eslint src/**/*.ts",
     "lint:fix": "eslint src/**/*.ts --fix",
     "prettier:check": "prettier --check src/**/*.{ts,json}",
@@ -15,8 +15,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bull-board/express": "^4.6.0",
-    "@bull-board/ui": "^4.6.0",
+    "@bull-board/express": "^4.6.1",
+    "@bull-board/ui": "^4.6.1",
     "@socket.io/redis-adapter": "^7.2.0",
     "bcryptjs": "^2.4.3",
     "bull": "^4.10.1",

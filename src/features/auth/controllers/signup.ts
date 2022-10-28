@@ -47,7 +47,8 @@ export class SignUp {
 
     // Add to redis cache
     const userDataForCache: IUserDocument = SignUp.prototype.userData(authData, userObjectId);
-    userDataForCache.profilePicture = `http://res.cloudinary.com/dxhu2wrmc/image/upload/v${result.version}/${userObjectId}`;
+    //这里面的是我的couldnary的账户，用user ID来命名
+    userDataForCache.profilePicture = `http://res.cloudinary.com/dwqvtkt8z/image/upload/v${result.version}/${userObjectId}`;
     await userCache.saveUserToCache(`${userObjectId}`, uId, userDataForCache);
 
     // Add to database
@@ -85,6 +86,7 @@ export class SignUp {
     } as IAuthDocument;
   }
 
+  //returns all the user data we want from cache
   private userData(data: IAuthDocument, userObjectId: ObjectId): IUserDocument {
     const { _id, username, email, uId, password, avatarColor } = data;
     return {

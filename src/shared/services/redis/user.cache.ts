@@ -1,3 +1,4 @@
+//把需要instant accessed的东西存在redis cache里
 import { Helpers } from '@global/helpers/helpers';
 import { BaseCache } from '@service/redis/base.cache';
 import { IUserDocument } from '@user/interfaces/user.interface';
@@ -12,6 +13,7 @@ export class UserCache extends BaseCache {
     super('userCache');
   }
 
+  //get the information by userID
   public async saveUserToCache(key: string, userUId: string, createdUser: IUserDocument): Promise<void> {
     const createdAt = new Date();
     const {

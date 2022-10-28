@@ -17,8 +17,10 @@ export abstract class BaseQueue {
   log: Logger;
 
   constructor(queueName: string) {
+    //为每一个extends basequeue的类，我们都会为他们建一个queue
     this.queue = new Queue(queueName, `${config.REDIS_HOST}`);
     bullAdapters.push(new BullAdapter(this.queue));
+    //remove duplicate
     bullAdapters = [...new Set(bullAdapters)];
     serverAdapter = new ExpressAdapter();
     serverAdapter.setBasePath('/queues');
@@ -44,6 +46,7 @@ export abstract class BaseQueue {
   }
 
   protected addJob(name: string, data: IBaseJobData): void {
+    //the typeface and delay is how many seconds do we want to wait before a failed job is retried
     this.queue.add(name, data, { attempts: 3, backoff: { type: 'fixed', delay: 5000 } });
   }
 

@@ -12,6 +12,7 @@ export class CurrentUser {
     let user = null;
 
     const cachedUser: IUserDocument = (await userCache.getUserFromCache(`${req.currentUser!.userId}`)) as IUserDocument;
+    //先从cache中找用户是否存在，如果不存在再去database里找用户是否存在，如果都不存在那么就不存在
     const existingUser: IUserDocument = cachedUser ? cachedUser : await userService.getUserById(`${req.currentUser!.userId}`);
     if (Object.keys(existingUser).length) {
       isUser = true;

@@ -1,3 +1,4 @@
+//create redis connection
 import { createClient } from 'redis';
 import Logger from 'bunyan';
 import { config } from '@root/config';

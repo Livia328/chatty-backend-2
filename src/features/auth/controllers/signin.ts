@@ -1,3 +1,8 @@
+import { resetPasswordTemplate } from './../../../shared/services/emails/templates/reset-password/reset-password-template';
+import { IResetPasswordParams } from './../../user/interfaces/user.interface';
+import { emailQueue } from './../../../shared/services/queues/email.queue';
+import { forgotPasswordTemplate } from './../../../shared/services/emails/templates/forgot-password/forgot-password-template';
+import { mailTransport } from '../../../shared/services/emails/mail.transport';
 import { Request, Response } from 'express';
 import { config } from '@root/config';
 import JWT from 'jsonwebtoken';
@@ -9,6 +14,8 @@ import { IAuthDocument } from '@auth/interfaces/auth.interface';
 import { BadRequestError } from '@global/helpers/error-handler';
 import { userService } from '@service/db/user.service';
 import { IUserDocument } from '@user/interfaces/user.interface';
+import moment from 'moment';
+import publicIP from 'ip';
 
 export class SignIn {
   @joiValidation(loginSchema)

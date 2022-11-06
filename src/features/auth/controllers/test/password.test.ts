@@ -14,7 +14,7 @@ const CORRECT_PASSWORD = 'manny';
 
 jest.mock('@service/queues/base.queue');
 jest.mock('@service/queues/email.queue');
-jest.mock('@service/db/auth.service');
+jest.mock('@service/db/auth.services');
 jest.mock('@service/emails/mail.transport');
 
 describe('Password', () => {

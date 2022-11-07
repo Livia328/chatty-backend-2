@@ -55,12 +55,12 @@ Accept: application/json
 withCredentials: true,
 
 {
-  "post": "post is updared",
+  "post": "post updated",
   "bgColor": "red",
   "privacy": "",
   "gifUrl": "",
   "profilePicture": "http://res.cloudinary.com/dwqvtkt8z/image/upload/v1666824976/6359bb10d4fa43fe51b35787",
-  "feelings": "happy"
+  "feelings": ""
 }
 
 ###

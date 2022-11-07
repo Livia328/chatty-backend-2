@@ -19,7 +19,7 @@ describe('SignOut', () => {
     await SignOut.prototype.update(req, res);
     expect(res.status).toHaveBeenCalledWith(200);
     expect(res.json).toHaveBeenCalledWith({
-      message: 'Logout successful',
+      message: 'Logout successfully',
       user: {},
       token: ''
     });

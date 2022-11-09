@@ -27,8 +27,8 @@ Accept: application/json
 withCredentials: true
 
 {
-  "userTo": "635b4614a532735e14fc7e6d",
-  "postId": "6366e4b8383a1e6804487fd5",
-  "comment": "This is my second comment",
+  "userTo": "6369b021b134f27fff915022",
+  "postId": "636b2cfe71bd9586911b9885",
+  "comment": "This is my first comment",
   "profilePicture": "http://res.cloudinary.com/dwqvtkt8z/image/upload/v1666824976/6359bb10d4fa43fe51b35787"
 }

@@ -20,6 +20,7 @@ export class SocketIOChatHandler {
         const receiverSocketId: string = connectedUsersMap.get(receiverName) as string;
         socket.join(senderSocketId);
         socket.join(receiverSocketId);
+        //add the user part
       });
     });
   }

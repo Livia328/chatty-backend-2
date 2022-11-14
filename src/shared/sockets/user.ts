@@ -47,6 +47,7 @@ export class SocketIOUserHandler {
         return user[1] === socketId;
       }) as [string, string];
       connectedUsersMap.delete(disconnectedUser[0]);
+      //send event to the cilent
       this.removeUser(disconnectedUser[0]);
       this.io.emit('user online', users);
     }

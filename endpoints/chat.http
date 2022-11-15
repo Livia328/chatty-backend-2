@@ -1,0 +1,88 @@
+@baseUrl = http://localhost:5000
+@urlPath = api/v1
+
+###
+GET {{baseUrl}}/{{urlPath}}/chat/message/conversation-list
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+GET {{baseUrl}}/{{urlPath}}/chat/message/user/6369b021b134f27fff915022
+# GET {{baseUrl}}/{{urlPath}}/chat/message/user/<receiverId>
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+###
+POST {{baseUrl}}/{{urlPath}}/chat/message
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "conversationId": "",
+  "receiverId": "6369b021b134f27fff915022",
+  "receiverUsername": "Follow1",
+  "receiverAvatarColor": "blue",
+  "receiverProfilePicture": "http://res.cloudinary.com/dwqvtkt8z/image/upload/v1667870796/6369b04bb134f27fff915030",
+  "body": "Hello, this is my second message to follower1",
+  "gifUrl": "",
+  "isRead": false,
+  "selectedImage": ""
+}
+
+###
+POST {{baseUrl}}/{{urlPath}}/chat/message/add-chat-users
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "userOne": "6369b045b134f27fff915029",
+  "userTwo": "6369b021b134f27fff915022"
+}
+
+###
+POST {{baseUrl}}/{{urlPath}}/chat/message/remove-chat-users
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "userOne": "6369b045b134f27fff915029",
+  "userTwo": "6369b021b134f27fff915022"
+}
+
+###
+PUT {{baseUrl}}/{{urlPath}}/chat/message/mark-as-read
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+{
+  "senderId": "6369b045b134f27fff915029",
+  "receiverId": "6369b021b134f27fff915022"
+}
+
+###
+PUT {{baseUrl}}/{{urlPath}}/chat/message/reaction
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
+
+# For this endpoint, the type is either add or remove
+{
+  "conversationId": "6371df8417202f99603e968a",
+  "messageId": "6371df8417202f99603e9689",
+  "reaction": "",
+  "type": "remove"
+}
+
+###
+DELETE {{baseUrl}}/{{urlPath}}/chat/message/mark-as-deleted/6371c4b078f972b0997de152/6369b045b134f27fff915029/6369b021b134f27fff915022/deleteForEveryone
+# DELETE {{baseUrl}}/{{urlPath}}/chat/message/mark-as-deleted/<messageId>/<senderId>/<receiverId>/<type>
+# For this endpoint, the type is either deleteForMe or deleteForEveryone
+Content-Type: application/json
+Accept: application/json
+withCredentials: true
